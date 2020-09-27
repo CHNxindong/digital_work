@@ -1,27 +1,21 @@
-# from PIL import ImageOps
-# import cv2
-#
-# im = cv2.imread('glass.jpg')
-# # cv2.imshow('im1', im)
-# # cv2.waitKey(0)
-#
-# eq = ImageOps.equalize(im)
-# cv2.imshow('image2', eq)
-# cv2.waitKey(0)
-# cv2.imwrite('work1/glass_1.jpg', eq)
+# -*- coding: utf-8 -*-
+# @Time    : 2020/9/27 9:11
+# @Author  : dong xin
+# @File    : work101.py
+# @Software: PyCharm
 
-
-
+# subject : equalizeHist for gray image.
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
-img = cv2.imread('glass.jpg', 0)
-cv2.imshow('img1', img)
 
+# 0 means gray
+img = cv2.imread('input/5.png', 0)
+
+# process for equalizeHist
 equ = cv2.equalizeHist(img)
-# res = np.hstack((img, equ))
-# #stacking images side-by-side
-# cv2.imshow('img', res)
-cv2.imshow('img', equ)
+res = np.hstack((img, equ))
+cv2.imshow('equalizeHist', res)
 cv2.waitKey()
 cv2.destroyAllWindows()
+
+cv2.imwrite('output/5.png', res)
